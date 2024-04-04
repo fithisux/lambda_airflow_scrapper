@@ -1,6 +1,8 @@
 # lambda_airflow_scrapper
 (In progress, check back , will remove this when ready) A server-less scrapper that is used through airflow
-An example using local stack to show airflow lambda functionality
+An example using local stack to show airflow lambda functionality.
+
+Code is taken (and re-written in some parts) frpm [this article](https://iwebdatascrapingservices.medium.com/how-to-scrape-news-content-from-popular-news-sites-636eea9db9a0)
 
 ## Run LocalStack docker container
 
