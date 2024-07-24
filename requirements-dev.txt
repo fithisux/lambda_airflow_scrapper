@@ -1,0 +1,10 @@
+mypy
+black
+flake8
+tox
+pymongo
+pandas
+requests
+beautifulsoup4
+boto3
+types-requests

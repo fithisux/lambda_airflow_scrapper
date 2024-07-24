@@ -1,6 +1,7 @@
-package/**
-package
+package/*
 out
-my_script.zip
 lambda_scrapper.zip
-.vscode/** */
+.vscode/*
+venv/*
+scrapped_data_folder/NEWS.csv
+scrapped_data_folder/the_data.csv
