@@ -2,6 +2,7 @@
 
 rm -rf /usr/src/myapp/package
 mkdir /usr/src/myapp/package
+cp -rf /usr/src/myapp/scrapping /usr/src/myapp/package
 cp /usr/src/myapp/lambda_scrapper.py /usr/src/myapp/package
 cp /usr/src/myapp/requirements-deploy.txt /usr/src/myapp/package
 python3 -m pip install -r /usr/src/myapp/requirements-deploy.txt --target /usr/src/myapp/package

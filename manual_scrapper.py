@@ -1,4 +1,4 @@
-from lambda_scrapper import do_scrapping
+from scrapping import scrapper
 import argparse
 
 if __name__ == "__main__":
@@ -12,4 +12,4 @@ if __name__ == "__main__":
         help="Shall we use some mongo host or just crawl to scrapped_data_folder (file system)?",
     )
     args = parser.parse_args()
-    do_scrapping(mongohost=args.mongohost)
+    scrapper.do_scrapping(mongohost=args.mongohost)
