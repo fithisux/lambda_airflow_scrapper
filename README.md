@@ -14,6 +14,12 @@ and then, for liniting and first ingestion
 
 `tox run`
 
+## Packaging
+
+Because we will deploy to linux we need
+
+`docker run -it --rm --name my-running-script -v C:/work/lambda_airflow_scrapper:/usr/src/myapp python:3 /usr/src/myapp/packaging`
+
 ## Run LocalStack docker container
 
 `docker-compose up`
@@ -45,4 +51,4 @@ https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html
 
 `aws --endpoint-url=http://localhost:4566 lambda create-function --function-name mysecondlambda --zip-file fileb://lambda_scrapper.zip --handler lambda_scrapper.lambda_handler --runtime python3.12 --role arn:aws:iam::000000000000:role/lambda-example`
 
-`aws --endpoint-url=http://localhost:4566 lambda invoke --function-name mysecondlambda --cli-binary-format raw-in-base64-out --payload file://payload.json out --log-type Tail --query 'LogResult' --output text`
+`aws --endpoint-url=http://localhost:4566 lambda invoke --function-name mysecondlambda --payload file://payload.json response.json`
