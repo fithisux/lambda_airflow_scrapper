@@ -1,6 +1,5 @@
 mypy
-black
-flake8
+ruff
 tox
 pymongo
 pandas

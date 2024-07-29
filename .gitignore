@@ -5,3 +5,6 @@ lambda_scrapper.zip
 venv/*
 scrapped_data_folder/NEWS.csv
 scrapped_data_folder/the_data.csv
+mongovol/*
+myvolume/*
+scrapping/__pycache__/*
