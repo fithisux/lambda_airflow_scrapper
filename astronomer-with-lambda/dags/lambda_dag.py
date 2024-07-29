@@ -1,7 +1,7 @@
 from datetime import datetime
 
 from airflow import DAG
-from day_four.operators.helper_operators import AWSSampleOperator1
+from operators.helper_operators import AWSScrapOperator
 
 dag = DAG(
     "call_scrap_lambda",
@@ -12,4 +12,4 @@ dag = DAG(
     tags=["ote-workshop"],
 )
 
-run_this = AWSSampleOperator1(task_id="do_the_call", dag=dag)
+run_this = AWSScrapOperator(task_id="do_the_call", dag=dag)
