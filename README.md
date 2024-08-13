@@ -1,8 +1,11 @@
 # lambda_airflow_scrapper
-(In progress, check back , will remove this when ready) A server-less scrapper that is used through airflow
+A server-less scrapper that is used through airflow
 An example using local stack to show airflow lambda functionality.
 
-Code is taken (and re-written in some parts) frpm [this article](https://iwebdatascrapingservices.medium.com/how-to-scrape-news-content-from-popular-news-sites-636eea9db9a0)
+Ingestion code is taken (and re-written in some parts) frpm [this article](https://iwebdatascrapingservices.medium.com/how-to-scrape-news-content-from-popular-news-sites-636eea9db9a0)
+
+There is an [article](https://medium.com/@fithis2001/emulate-your-first-scheduled-aws-lambda-ad68475249f0) now in Medium.
+
 
 ## Linting
 
