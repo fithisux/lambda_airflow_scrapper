@@ -8,8 +8,7 @@ dag = DAG(
     default_args={"retries": 1},
     start_date=datetime(2021, 1, 1),
     catchup=False,
-    schedule_interval="@daily",
-    tags=["ote-workshop"],
+    tags=["learning-workshop"],
 )
 
 run_this = AWSScrapOperator(task_id="do_the_call", dag=dag)

@@ -61,7 +61,7 @@ Enter
 
 and execute
 
-`c:\tools\astro_1.27.1_windows_amd64.exe dev start`
+`c:\tools\astro_1.29.0_windows_amd64.exe dev start`
 
 install again the scrapper
 

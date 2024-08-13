@@ -1,4 +1,3 @@
-FROM quay.io/astronomer/astro-runtime:11.6.0
+FROM quay.io/astronomer/astro-runtime:11.8.0
 
-# install dbt into a virtual environment
 RUN python -m pip install boto3

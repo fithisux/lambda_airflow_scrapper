@@ -8,9 +8,7 @@ from airflow.models.taskinstance import Context
 
 logger = logging.getLogger(__name__)
 
-
 # https://cevo.com.au/post/revisit-airflow-lambda-operator/
-
 
 class AWSScrapOperator(BaseOperator):
     def __init__(self, *args, **kwargs):
@@ -19,7 +17,6 @@ class AWSScrapOperator(BaseOperator):
     def execute(self, context: Context):
         data_interval_start: pendulum.DateTime = context["data_interval_start"]
         what_time_is_it = data_interval_start.to_date_string()
-        # endpoint_url = "http://localhost.localstack.cloud:4566"
         endpoint_url = "http://host.docker.internal:4566"
         client = boto3.client("lambda", endpoint_url=endpoint_url)
 
@@ -31,5 +28,4 @@ class AWSScrapOperator(BaseOperator):
         )
 
         logger.info(response)
-
         logger.info(response["Payload"].read())
