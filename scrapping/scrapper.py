@@ -55,15 +55,6 @@ def do_scrapping(scrap_stamp=None, mongohost="localhost"):
 
         print(len(links))
 
-        headers = "Statement,Link,Date, Source, Label\n"
-
-        if not mongohost:
-            filename = "scrapped_data_folder/NEWS.csv"
-
-            f = open(filename, "w", encoding="utf-8")
-
-            f.write(headers)
-
         for j in links:
             Statement = j.find(
                 "div", attrs={"class": "m-statement__quote"}
@@ -98,19 +89,6 @@ def do_scrapping(scrap_stamp=None, mongohost="localhost"):
             )
 
             frame.append((Statement, Link, Date, Source, Label))
-            if not mongohost:
-                f.write(
-                    Statement.replace(",", "^")
-                    + ","
-                    + Link
-                    + ","
-                    + Date.replace(",", "^")
-                    + ","
-                    + Source.replace(",", "^")
-                    + ","
-                    + Label.replace(",", "^")
-                    + "\n"
-                )
 
         upperframe.extend(frame)
 
@@ -123,9 +101,7 @@ def do_scrapping(scrap_stamp=None, mongohost="localhost"):
         data["Scrapversion"] = scrap_stamp
 
         if not mongohost:
-            f.close()
-
-            data.to_csv("scrapped_data_folder/the_data.csv")
+            data.to_csv("scrapped_data_folder/NEWS.csv", index=False)
 
         else:
             mongo_url = f"mongodb://root:example@{mongohost}"
