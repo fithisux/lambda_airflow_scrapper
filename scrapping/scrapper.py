@@ -13,6 +13,7 @@ from pymongo import MongoClient
 
 def do_scrapping(scrap_stamp=None, mongohost="localhost"):
     pagesToGet = 20
+    scrap_stamp = datetime.today().strftime("%Y-%m-%d")
 
     upperframe = []
 
@@ -97,7 +98,6 @@ def do_scrapping(scrap_stamp=None, mongohost="localhost"):
             columns=["Statement", "Link", "Date", "Source", "Label", "Pagenum"],
         )
 
-        scrap_stamp = scrap_stamp or datetime.today().strftime("%Y-%m-%d-%H-%M-%S")
 
         data["Scrapversion"] = scrap_stamp
 
