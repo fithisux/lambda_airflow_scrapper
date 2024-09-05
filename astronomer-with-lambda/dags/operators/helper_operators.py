@@ -10,6 +10,7 @@ logger = logging.getLogger(__name__)
 
 # https://cevo.com.au/post/revisit-airflow-lambda-operator/
 
+
 class AWSScrapOperator(BaseOperator):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

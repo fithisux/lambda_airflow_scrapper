@@ -3,7 +3,7 @@ out
 lambda_scrapper.zip
 .vscode/*
 venv/*
-scrapped_data_folder/NEWS.csv
+scrapped_data_folder/*.csv
 scrapped_data_folder/the_data.csv
 mongovol/*
 myvolume/*

@@ -12,14 +12,14 @@ from pymongo import MongoClient
 
 
 def do_scrapping(scrap_stamp=None, mongohost="localhost"):
-    pagesToGet = 1
+    pagesToGet = 20
 
     upperframe = []
 
-    for page in range(1, pagesToGet + 1):
-        print("processing page :", page)
+    for pagenum in range(1, pagesToGet + 1):
+        print("processing page :", pagenum)
 
-        url = "https://www.politifact.com/factchecks/list/?page=" + str(page)
+        url = "https://www.politifact.com/factchecks/list/?page=" + str(pagenum)
 
         print(url)
 
@@ -88,20 +88,23 @@ def do_scrapping(scrap_stamp=None, mongohost="localhost"):
                 .get("alt")
             )
 
-            frame.append((Statement, Link, Date, Source, Label))
+            frame.append((Statement, Link, Date, Source, Label, pagenum))
 
         upperframe.extend(frame)
 
         data = pd.DataFrame(
-            upperframe, columns=["Statement", "Link", "Date", "Source", "Label"]
+            upperframe,
+            columns=["Statement", "Link", "Date", "Source", "Label", "Pagenum"],
         )
 
-        scrap_stamp = scrap_stamp or datetime.today().strftime("%Y-%m-%d")
+        scrap_stamp = scrap_stamp or datetime.today().strftime("%Y-%m-%d-%H-%M-%S")
 
         data["Scrapversion"] = scrap_stamp
 
         if not mongohost:
-            data.to_csv("scrapped_data_folder/NEWS.csv", index=False)
+            data.to_csv(
+                f"scrapped_data_folder/NEWS-{scrap_stamp}.csv", index=False, sep=";"
+            )
 
         else:
             mongo_url = f"mongodb://root:example@{mongohost}"
